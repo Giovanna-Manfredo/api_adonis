@@ -26,7 +26,7 @@ export default class MediasController {
         fileCategory: 'post',
         fileName: `${cuid()}.${file.extname}`
       }
-
+      //@ts-ignore
       const media = await post.related('image').updateOrCreate(searchPayload, savePayload)
 
       await file.move(Application.tmpPath('uploads'), {

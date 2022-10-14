@@ -19,7 +19,7 @@ export default class UserAvatarController {
         fileCategory: 'avatar' as any,
         fileName: `${new Date().getTime()}.${file.extname}`
       }
-
+      
       const avatar = await user.related('avatar').updateOrCreate(searchPayload, savePayload)
 
       await file.move(Application.tmpPath('uploads'), {
