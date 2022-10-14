@@ -18,6 +18,7 @@ export default class PostsController {
 
       for (let i = 0; i < tags.length; i++) {
          const tag: Number = tags[i]['tagId']
+         //@ts-ignore
          all.push(tag)
       }
 
@@ -146,7 +147,7 @@ export default class PostsController {
       })
     })
     .first()
-
+    //@ts-ignore
     return post.serialize({
       fields: {
         pick: ['id','title','description','date',],

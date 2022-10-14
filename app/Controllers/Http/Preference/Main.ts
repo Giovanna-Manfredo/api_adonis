@@ -5,7 +5,7 @@ import Tag from 'App/Models/Tag'
 import Preference from 'App/Models/Preference'
 
 export default class PreferencesController {
-  public async store({ request, }: HttpContextContract) {
+  public async store({ request, auth }: HttpContextContract) {
     const data = await request.validate(StoreValidator)
     const user = await User.findOrFail(data.id)
 
@@ -15,6 +15,10 @@ export default class PreferencesController {
         await Tag.findOrFail(preferences[i])
         await Preference.firstOrCreate({userId:data.id, tagId:preferences[i]})
     }
+
+    const token = await auth.attempt(user.email, data.password, { expiresIn: '30 days'})
+
+    return token
     
     return user
 }
