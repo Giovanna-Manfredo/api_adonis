@@ -1,2 +1,2 @@
-release: node build/ace migration:rollback
+release: node build/ace migration:run --force 
 web: npm start
