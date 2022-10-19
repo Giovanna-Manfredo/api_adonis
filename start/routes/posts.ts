@@ -11,6 +11,7 @@ Route.post('/post/:id/media', 'Post/Medias.store').middleware('auth')
 
 Route.post('/post/:id/saved/:bool', 'Saved/Main.store').middleware('auth')
 Route.post('/post/:id/liked/:bool', 'Liked/Main.store').middleware('auth')
+Route.post('/post/:id/report/:bool', 'Report/Main.store').middleware('auth')
 
 Route.post('/post/:id/report', 'Report/Main.store').middleware('auth')
 Route.post('/post/:id/comment', 'Comment/Main.store').middleware('auth')

@@ -145,6 +145,7 @@ export default class PostsController {
       query.preload('user', (query)=>{
         query.preload('avatar')
       })
+      query.orderBy('id','desc')
     })
     .first()
     //@ts-ignore
