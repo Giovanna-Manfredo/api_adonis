@@ -5,7 +5,6 @@ export default class StoreValidator {
   constructor() {}
 
   public schema = schema.create({
-    id: schema.number(),
     preference_ids: schema.array([rules.minLength(1)]).members(schema.number())
   })
 

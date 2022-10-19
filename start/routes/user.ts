@@ -2,7 +2,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.post('/user', 'User/Main.store')
 Route.post('/user/preference', 'Preference/Main.store')
-Route.put('/preferences', 'Preference/Main.update')
+Route.put('/preferences', 'Preference/Main.update').middleware('auth')
 
 Route.post('/user/search', 'Search/Main.index').middleware('auth')
 Route.get('/user/notification', 'Notification/Main.index').middleware('auth')

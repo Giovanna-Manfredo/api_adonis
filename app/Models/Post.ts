@@ -20,7 +20,11 @@ export default class Post extends BaseModel {
   
   @computed()
   public get description_preview(){
+    
     const preview = this.description
+    if(!preview){
+      return ""
+    }
     if(preview.length <= 250){
       return this.description
     }else{
